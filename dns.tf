@@ -16,7 +16,7 @@ resource "cloudflare_record" "localhost_v6" {
   proxied = false
 }
 
-resource "cloudflare_record" "dmarc" {
+resource "cloudflare_record" "magic" {
   zone_id = var.cloudflare_zone_id
   name    = "magic"
   value   = "Hacked"
