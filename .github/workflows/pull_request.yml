@@ -33,7 +33,7 @@ jobs:
           terraform fmt -check
 
       - name: Augment PR with terraform format infos
-        uses: actions/github-script@0.9.0
+        uses: actions/github-script@v6.3.3
         if: steps.tffmt.outcome != 'success'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -78,7 +78,7 @@ jobs:
           echo "::set-output name=validate::$(sed ':a;N;$!ba;s/\n/{newline}/g' < terraform_fmt.txt)"
 
       - name: Augment PR with terraform format infos
-        uses: actions/github-script@0.9.0
+        uses: actions/github-script@v6.3.3
         if: steps.validate.outcome != 'success'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -130,7 +130,7 @@ jobs:
         continue-on-error: true
 
       - name: Augment PR with terraform plan infos
-        uses: actions/github-script@0.9.0
+        uses: actions/github-script@v6.3.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
